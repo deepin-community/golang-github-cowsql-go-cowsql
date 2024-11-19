@@ -1,0 +1,5 @@
+Bug-Database: https://github.com/cowsql/go-cowsql/issues
+Bug-Submit: https://github.com/cowsql/go-cowsql/issues/new/choose
+Documentation: https://godoc.org/github.com/cowsql/go-cowsql
+Repository: https://github.com/cowsql/go-cowsql.git
+Repository-Browse: https://github.com/cowsql/go-cowsql

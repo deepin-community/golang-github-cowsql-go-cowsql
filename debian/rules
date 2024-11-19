@@ -1,4 +1,11 @@
 #!/usr/bin/make -f
 
 %:
-	dh $@
+	dh $@ --builddirectory=_build --buildsystem=golang --with=golang
+
+# Because tests are sensitive when run on slower architectures, run them under
+# autopkgtest marked as "flaky"
+override_dh_auto_test:
+
+autopkgtest:
+	dh_auto_test -O--builddirectory=_build -O--buildsystem=golang

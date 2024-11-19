@@ -1,0 +1,23 @@
+From: Mathias Gibbens <mathias@calenhad.com>
+Description: Skip tests that try to reach out to the Internet
+Forwarded: not-needed
+diff --git a/internal/protocol/connector_test.go b/internal/protocol/connector_test.go
+index 790f33a..5fa1b5b 100644
+--- a/internal/protocol/connector_test.go
++++ b/internal/protocol/connector_test.go
+@@ -61,6 +61,7 @@ func TestConnector_LimitRetries(t *testing.T) {
+ 
+ // The network connection can't be established because of a connection timeout.
+ func TestConnector_DialTimeout(t *testing.T) {
++	t.Skip("Skipping network test")
+ 	store := newStore(t, []string{"8.8.8.8:9000"})
+ 	log, check := newLogFunc(t)
+ 	config := protocol.Config{
+@@ -95,6 +96,7 @@ func TestConnector_EmptyNodeStore(t *testing.T) {
+ 
+ // Connection failed because the context was canceled.
+ func TestConnector_ContextCanceled(t *testing.T) {
++	t.Skip("Skipping network test")
+ 	store := newStore(t, []string{"1.2.3.4:666"})
+ 
+ 	log, check := newLogFunc(t)
